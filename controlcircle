@@ -1,0 +1,57 @@
+var speed=1;
+var circle1X=0;
+var circle2X=0;
+var circle1Y=100;
+var time =0;
+var dir=true;
+function setup() {
+
+  createCanvas(300, 200);
+  
+ 
+}
+
+function draw() {
+  
+  background(255);
+  fill(0);
+  circle(circle1X, circle1Y,50);
+  fill(255);
+  circle(circle2X, circle1Y-50,50);
+  
+  line(mouseX,mouseY-30,mouseX,mouseY+30);
+  
+//direaction
+  if(circle1X>=mouseX-25&&mouseY<130&&mouseY>70&&circle1X<=mouseX-60){
+    dir=!dir;
+  }
+  else if (circle1X<=mouseX+25&&mouseY<130&&mouseY>70&&circle1X>=mouseX-25){
+   dir=!dir;
+  }
+  
+  //
+  
+  if(circle1X>=275){
+    dir=false;
+  }
+  else if (circle1X<=25){
+   dir=true; 
+  }
+  
+
+  
+  //move
+  if(dir){
+    
+    circle1X +=speed;
+    circle2X +=speed;
+  }
+  else {
+    
+    circle1X= circle1X-speed;
+    circle2X= circle2X-speed;
+  }
+  
+  //circleX= circleX+ speed;
+  
+}
